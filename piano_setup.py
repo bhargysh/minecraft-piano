@@ -9,8 +9,10 @@ mc = minecraft.Minecraft.create()
 positions = mc.player.getTilePos()
 print(positions)
 
+def clear_space(x, y, z):
+    mc.setBlocks(x - 70, y, z - 70, x + 70, y + 70, z + 70, 0)
+
 def make_octave(x, y, z):
-    mc.setBlocks(x - 30, y, z - 30, x + 30, y + 30, z + 30, 0)
     for i in range(0, 19, 3):
         white_key(positions.x + i, positions.y, positions.z)
     for i in range(2, 18, 3):
@@ -50,8 +52,11 @@ while True:
 
     if block_below == 44:
         notes_across = relative_pos // -3
+        print('about to play white key')
         play_note(white_notes[notes_across])
 
     if block_below == 49:
         notes_across = ((relative_pos - 1) // -3) - 1
+        print('about to play black key')
         play_note(black_notes[notes_across])
+    break
