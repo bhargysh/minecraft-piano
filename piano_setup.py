@@ -29,6 +29,7 @@ def white_key(x, y, z):
 def centre_steve():
     mc.player.setPos(positions.x + 8, positions.y, positions.z + 12)
 
+clear_space(positions.x, positions.y, positions.z)
 make_octave(positions.x, positions.y, positions.z)
 centre_steve()
 
@@ -59,4 +60,3 @@ while True:
         notes_across = ((relative_pos - 1) // -3) - 1
         print('about to play black key')
         play_note(black_notes[notes_across])
-    break
